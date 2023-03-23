@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+// Function declaration
+int f(int num);
+
+int main() {
+    int i = 3;
+    int val;
+
+    // sizeof operator returns the size of its operand in bytes
+    // Here, sizeof operator is applied on the integer returned by f(i)
+    // sizeof operator is a compile-time operator and does not evaluate its operand at runtime
+    // Therefore, f(i) is not actually called
+    // Instead, the size of the integer returned by f(i) is determined, which is usually 4 bytes
+    // The resulting value is added to the values returned by the function calls f(i=1) and f(i-1)
+    val = sizeof(f(i)) + f(i=1) + f(i-1);
+
+    // The variable i is now equal to 1, as it was modified in the expression f(i=1)
+    // The value of val will be 4 + 5 + 0 = 9
+    // The value of i will be 1
+    printf("val = %d, i = %d\n", val, i);
+
+    return 0;
+}
+
+// Function definition
+int f(int num) {
+    return num * 5;
+}
+output
+val = 9, i = 1
