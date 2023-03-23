@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main() {
+    // Initialize an integer array with 4 elements
+    int arr[] = {6, 12, 18, 24};
+    
+    // Initialize an integer variable
+    int x = 0;
+    
+    // Compute the value of x
+    x = arr[1] + (arr[1] = 2);
+    /*
+        The expression arr[1] + (arr[1] = 2) does the following:
+        1. Assigns the value 2 to arr[1]
+        2. Evaluates the expression arr[1] (which now equals 2)
+        3. Adds the value of arr[1] (which is 2) to the original value of arr[1] (which was 12)
+           and assigns the result to x
+        
+        Therefore, x is assigned the value 14.
+    */
+    
+    // Print the value of x
+    printf("%d", x);
+    
+    return 0;
+}
+output
+14
